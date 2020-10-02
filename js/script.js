@@ -76,14 +76,14 @@ function playGame(playerInput) {
 
 }
 
-let paperButton = document.getElementById('play-paper')
 let rockButton = document.getElementById('play-rock')
+let paperButton = document.getElementById('play-paper')
 let scisorsButton = document.getElementById('play-scisors')
 
-paperButton.addEventListener('click', function(){
+rockButton.addEventListener('click', function(){
 	playGame(1)
 })
-rockButton.addEventListener('click', function(){
+paperButton.addEventListener('click', function(){
 	playGame(2)
 })
 
