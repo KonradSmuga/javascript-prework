@@ -41,7 +41,7 @@ printMessage('Twój ruch to: ' + playerMove);
 
 if(computerMove == 'kamień' && playerMove =='papier' || computerMove == 'nożyce' && playerMove == 'kamień' || computerMove == 'papier' && playerMove =='nożyce'){
 	printMessage('Ty wygrywasz');
-}else if(computerMove == 'kamień' && playerMove =='kamień' || computerMove == 'nożyce' && playerMove == 'nożyce' || computerMove == 'papier' && playerMove =='papier'){ 
+}else if(computerMove == playerMove){ 
 	printMessage('remis')
 }else{
 	printMessage('wygrywa komputer')
