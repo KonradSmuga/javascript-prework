@@ -8,29 +8,16 @@
 // printMessage('Zagralem ' + computerMove + '! Jeśli Twój ruch to ' + playerMove + ' wygrywasz!');
 
 
-
-
-function playGame(playerInput) {
+{
+playGame =  function(playerInput) {
 	clearMessages();
-	let randomNumber = Math.floor(Math.random() * 3 + 1);
-	let computerMove = getMoveName(randomNumber);
+	const randomNumber = Math.floor(Math.random() * 3 + 1);
+	
 	console.log('Komputer wylosowal: ' + randomNumber);
-	// let playerInput = prompt('Wybierz swój ruch! 1: kamień, 2: papier, 3: nożyce.');
-	let playerMove = getMoveName(playerInput);
-
-
 	console.log('Gracz wpisał: ' + playerInput);
-	let score = displayResult(computerMove, playerMove);
-
-	// if(randomNumber == 1){
-	//   computerMove = 'kamień';
-	// }else if(randomNumber == 2){
-	// 	computerMove = 'papier';
-	// }else if(randomNumber == 3){
-	// 	computerMove = 'nożyce';
-	// }
-
-	function getMoveName(argMoveId) {
+	
+let getMoveName = function(argMoveId) {
+		
 		if (argMoveId == 1) {
 			return 'kamień';
 		}
@@ -40,54 +27,45 @@ function playGame(playerInput) {
 		if (argMoveId == 3) {
 			return 'nożyce';
 		}
+		
 	}
+	const playerMove = getMoveName(playerInput);
+	const computerMove = getMoveName(randomNumber);
 
-
-	if (playerInput == "") {
-		playerMove = 'brak dodanego elementu'
-		score = 'nie podales elementu wiec nie mozna okreslic wyniku'
-		printMessage('nic nie dodales, wybierz opcje');
-	}
-
-
-	// if(playerInput == '1'){
-	//   playerMove = 'kamień';
-	//  }else if( playerInput =='2'){
-	// 	playerMove= 'papier';
-	//  }else if(playerInput== '3'){
-	//  	playerMove='nożyce';
-	//  }
-
-	function displayResult(argComputerMove, argPlayerMove) {
+	const displayResult = function(argComputerMove, argPlayerMove) {
+		
 		if (argComputerMove == 'kamień' && argPlayerMove == 'papier' || argComputerMove == 'nożyce' && argPlayerMove == 'kamień' || argComputerMove == 'papier' && argPlayerMove == 'nożyce') {
 			return 'Ty wygrywasz';
 		}
 		if (argComputerMove == argPlayerMove) {
 			return 'remis';
 		}
+		
 		return 'wygrywa komputer';
 	}
 
 
+	const score = displayResult(computerMove, playerMove);
 	printMessage('Mój ruch to: ' + computerMove);
 	printMessage('Gracza ruch to: ' + playerMove);
 	printMessage('wynik gry: ' + score)
 	console.log('wynik: ' + score);
-
 }
 
-let rockButton = document.getElementById('play-rock')
-let paperButton = document.getElementById('play-paper')
-let scisorsButton = document.getElementById('play-scisors')
 
+
+
+const rockButton = document.getElementById('play-rock')
 rockButton.addEventListener('click', function(){
 	playGame(1)
 })
+const paperButton = document.getElementById('play-paper')
 paperButton.addEventListener('click', function(){
 	playGame(2)
 })
-
+const scisorsButton = document.getElementById('play-scisors')
 scisorsButton.addEventListener('click', function(){
 	playGame(3)
 })
 
+}
